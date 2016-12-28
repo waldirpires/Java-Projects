@@ -36,7 +36,8 @@ public class SeleniumTest {
 		
 		StringBuffer code = new StringBuffer("437KY-*&X3WKY4GJ");
 		String chars1 = "KLMNOPQRSTUVWXYZ0123456789";
-		String chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+		String chars2 = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+		String chars3 = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 		selenium.click("id=primary_opt_in");
 		selenium.click("id=rules_checkbox");
 		selenium.type("id=email_2", "wrpiresjr@outlook.com");
@@ -46,11 +47,11 @@ public class SeleniumTest {
 		selenium.select("name=age.birth_year", "label=1976");
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd hh:mm:ss");
 		for (int i = 0; i < chars1.length(); i++){
-			code.replace(5,6, chars.charAt(i)+"");
-			for (int k = 0; k < chars.length(); k++){
-				code.replace(6,7, chars.charAt(k)+"");
-				for (int l = 0; l < chars.length(); l++){
-					code.replace(7,8, chars.charAt(l)+""); 
+			code.replace(5,6, chars1.charAt(i)+"");
+			for (int k = 0; k < chars2.length(); k++){
+				code.replace(6,7, chars2.charAt(k)+"");
+				for (int l = 0; l < chars3.length(); l++){
+					code.replace(7,8, chars3.charAt(l)+""); 
 					selenium.type("id=purchase_code", code.toString());
 					selenium.click("css=div.profile > div.row > div.column.small-12 > div.submit > button[type=\"submit\"]");
 					selenium.waitForPageToLoad("30000");

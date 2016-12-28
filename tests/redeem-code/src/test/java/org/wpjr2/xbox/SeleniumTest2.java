@@ -23,9 +23,9 @@ public class SeleniumTest2 {
 						count++;
 						code.replace(7, 8, chars.charAt(l) + "");
 						System.out.println(count + ": " + code);
-						SeleniumThread t = new SeleniumThread(code.toString());
-						t.start();
-						t.join();
+						//SeleniumThread t = new SeleniumThread(code.toString());
+						//t.start();
+						//t.join();
 					}
 				}
 			}
