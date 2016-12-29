@@ -1,0 +1,9 @@
+
+Fsquid:S1481
+"(Remove this unused "url" local variable.(ôçÃä8ÌÉó…”+
+]squid:S1118":Add a private constructor to hide the implicit public one.(×‰¶¡ýÿÿÿÿ8Ò¯‹ƒ”+
+¶%squid:RedundantThrowsDeclarationCheck"yRemove the declaration of thrown exception 'java.net.MalformedURLException' which is a subclass of 'java.io.IOException'.(ýé†šýÿÿÿÿ8Ì¯‘ƒ”+
+Usquid:S1854
+"7Remove this useless assignment to local variable "url".(ôçÃä8ÌÉó…”+
+nsquid:CommentedOutCodeLine	"<This block of commented-out lines of code should be removed.(ÿÊ­Ïüÿÿÿÿ8ýòÞƒ”+
+isquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(‘žËš8Š¢âƒ”+
