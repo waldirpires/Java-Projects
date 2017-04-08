@@ -23,7 +23,7 @@ public class SeleniumTest {
 	
 	@Before
 	public void setUp() throws Exception {
-		System.setProperty("webdriver.chrome.driver", "c://dev/chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "d://dev//code//Java-Projects//tests//chromedriver.exe");
 		driver = new ChromeDriver();
 		String baseUrl = "https://microsoft.promo.eprize.com/";
 		selenium = new WebDriverBackedSelenium(driver, baseUrl);
@@ -40,6 +40,7 @@ public class SeleniumTest {
 //		String chars1 = "KLMNOPQRSTUVWXYZ0123456789";
 //		String chars2 = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 //		String chars3 = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+		//String chars0 = "FIKPTY1";
 		String chars0 = "P";
 		String chars1 = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 		String chars2 = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
