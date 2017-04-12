@@ -3,8 +3,10 @@ package com.wpjr.difftool.model;
 import java.io.Serializable;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.Id;
 
+@Entity(name = "diff_document")
 public class DiffDocument  implements Serializable {
 
 	/**

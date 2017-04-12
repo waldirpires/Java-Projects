@@ -5,12 +5,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.wpjr.difftool.model.DiffDocument;
 import com.wpjr.difftool.repository.DiffDocumentRepository;
 
-public class DiffDocumentServiceImpl {
+public class DiffDocumentServiceImpl implements DiffDocumentService{
 
 	@Autowired
 	private DiffDocumentRepository diffDocumentRepository;
 
 
+	@Override
 	public DiffDocument saveDocument(Long id, String left, String right)
 	{
 		DiffDocument diffDoc = null;
@@ -27,9 +28,28 @@ public class DiffDocumentServiceImpl {
 		diffDoc = diffDocumentRepository.save(diffDoc);
 		return diffDoc;
 	}
+
+	@Override
+	public String doDiff(Long id)
+	{
+		String result = "blah";
+		
+		DiffDocument diffDoc = null;
+		if (diffDocumentRepository.exists(id))
+		{
+			diffDoc = diffDocumentRepository.findOne(id);
+		}
+		
+		
+		return result;
+	}
 	
+	
+	@Override
 	public DiffDocument getDocument(Long id)
 	{
-		return diffDocumentRepository.findOne(id);
+		return diffDocumentRepository.findOne(id).orElseThrow(
+				() -> new Exception(id));
+		
 	}
 }
