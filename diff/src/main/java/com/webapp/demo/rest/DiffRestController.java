@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.webapp.demo.model.DiffDocument;
+import com.webapp.demo.model.DiffProcessorReport;
 import com.webapp.demo.service.DiffDocumentService;
 
 @RestController
@@ -24,9 +25,14 @@ public class DiffRestController {
         return "{\"msg\": \"Hello REST World!\"}";
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/{id}/doc", method = RequestMethod.GET)
 	DiffDocument getDoc(@PathVariable String id) {
 		return this.diffDocumentService.getDocument(Long.parseLong(id));
+	}
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+	DiffProcessorReport doDiff(@PathVariable String id) {
+		return this.diffDocumentService.doDiff(Long.parseLong(id));
 	}
     
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
@@ -34,8 +40,8 @@ public class DiffRestController {
 		return this.diffDocumentService.delete(Long.parseLong(id));
 	}
     
-	@RequestMapping(value = "/{id}/{side}", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
-	public ResponseEntity<DiffDocument> acceptDoc(@PathVariable("id") Long id, @PathVariable("side") String side, @RequestBody String payload)
+	@RequestMapping(value = "/{id}/{side}", method = RequestMethod.POST, consumes = "text/plain", produces = "application/json")
+	public ResponseEntity<DiffDocument> acceptDocTextPlain(@PathVariable("id") Long id, @PathVariable("side") String side, @RequestBody String payload)
 	{
 		String left = null;
 		String right = null;
@@ -52,4 +58,22 @@ public class DiffRestController {
 		return ResponseEntity.ok(diffDoc);
 	}
 	
+//	@RequestMapping(value = "/{id}/{side}", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
+//	public ResponseEntity<DiffDocument> acceptDocApplicationJson(@PathVariable("id") Long id, @PathVariable("side") String side, @RequestBody String payload)
+//	{
+//		String left = null;
+//		String right = null;
+//		if ("left".equals(side))
+//		{
+//			left = payload;
+//		} else if ("right".equals(side))
+//		{
+//			right = payload;
+//		}
+//
+//		DiffDocument diffDoc = diffDocumentService.saveDocument(id, left, right);
+//		
+//		return ResponseEntity.ok(diffDoc);
+//	}
+//	
 }

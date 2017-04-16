@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.webapp.demo.model.DiffDocument;
+import com.webapp.demo.model.DiffProcessorReport;
 import com.webapp.demo.repository.DiffDocumentRepository;
 
 @Service
@@ -13,6 +14,9 @@ public class DiffDocumentServiceImpl implements DiffDocumentService{
 	@Autowired
 	private DiffDocumentRepository diffDocumentRepository;
 
+	@Autowired
+	private DiffProcessorService diffProcessorService;
+	
 
 	@Override
 	public DiffDocument saveDocument(Long id, String left, String right)
@@ -28,23 +32,33 @@ public class DiffDocumentServiceImpl implements DiffDocumentService{
 		}
 		diffDoc.updateSide(DiffDocument.DIFF_SIDE_LEFT, left);
 		diffDoc.updateSide(DiffDocument.DIFF_SIDE_RIGHT, right);
+		
+		if (diffDoc.isEmpty())
+		{
+			throw new DiffDocumentException("ERROR: Document with ID " + id + " is empty!");
+		}
+		
 		diffDoc = diffDocumentRepository.save(diffDoc);
 		return diffDoc;
 	}
 
 	@Override
-	public String doDiff(Long id)
+	public DiffProcessorReport doDiff(Long id)
 	{
-		String result = "blah";
-		
 		DiffDocument diffDoc = null;
-		if (diffDocumentRepository.exists(id))
+		if (!diffDocumentRepository.exists(id))
 		{
-			diffDoc = diffDocumentRepository.findOne(id);
+			throw new DiffDocumentException("ERROR: Document with ID " + id + " does not exist!");
+		} 
+			
+		diffDoc = diffDocumentRepository.findOne(id);
+		
+		if (!diffDoc.isComplete())
+		{
+			throw new DiffDocumentException("ERROR: Document with ID " + id + " is incomplete!");
 		}
 		
-		
-		return result;
+		return diffProcessorService.executeDiffTool(diffDoc);		
 	}
 	
 	
@@ -52,17 +66,11 @@ public class DiffDocumentServiceImpl implements DiffDocumentService{
 	public DiffDocument getDocument(Long id)
 	{
 		
-		DiffDocument diffDoc = diffDocumentRepository.findOne(id);
-		if (diffDoc == null)
+		if (!diffDocumentRepository.exists(id))
 		{
 			throw new DiffDocumentException("ERROR: Diff document with ID " + id + " does not exist.");
 		}
-		
-		if (!StringUtils.isEmpty(diffDoc.getLeft()) && !StringUtils.isEmpty(diffDoc.getRight()))
-		{
-			diffDoc.setDiff(StringUtils.difference(diffDoc.getLeft(), diffDoc.getRight()));
-			diffDoc = diffDocumentRepository.save(diffDoc);
-		}
+		DiffDocument diffDoc = diffDocumentRepository.findOne(id);
 		
 		return diffDoc;		
 	}

@@ -11,14 +11,12 @@ import org.springframework.context.annotation.ComponentScan;
 @EnableAutoConfiguration
 @SpringBootConfiguration
 @SpringBootApplication
-//@ComponentScan(basePackageClasses = DiffRestController.class)
 public class DiffApp {
 
     public static void main(String[] args) throws Exception {
-        //SpringApplication.run(DiffController.class, args);
 		SpringApplication app = new SpringApplicationBuilder(DiffApp.class).build();
 		app.run(args);
     	
     }
-
 }
+

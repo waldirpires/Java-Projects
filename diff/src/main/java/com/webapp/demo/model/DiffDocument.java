@@ -27,12 +27,6 @@ public class DiffDocument  implements Serializable {
 	String left;
 	@Column(nullable = true)
 	String right;
-	@Column(nullable = true)
-	String diff;
-	@Column(nullable = true)
-	Integer lengthRight;
-	@Column(nullable = true)
-	Integer lengthLeft;
 	
 	public Long getId() {
 		return id;
@@ -48,13 +42,6 @@ public class DiffDocument  implements Serializable {
 	
 	public void setLeft(String left) {
 		this.left = left;
-		if (this.left != null)
-		{
-			setLengthLeft(this.left.length());
-		} else 
-		{
-			setLengthLeft(null);
-		}
 	}
 	
 	public String getRight() {
@@ -63,13 +50,6 @@ public class DiffDocument  implements Serializable {
 	
 	public void setRight(String right) {
 		this.right = right;
-		if (this.right != null)
-		{
-			setLengthRight(this.right.length());
-		} else 
-		{
-			setLengthRight(null);
-		}
 	}
 	
 	public void updateSide(String side, String value)
@@ -79,37 +59,41 @@ public class DiffDocument  implements Serializable {
 			return;
 		}
 		
-		if (DIFF_SIDE_LEFT.equals(side))
+		if (DIFF_SIDE_LEFT.equals(side) && !StringUtils.isEmpty(value))
 		{
 			setLeft(value);
-		} else if (DIFF_SIDE_RIGHT.equals(side))
+		} else if (DIFF_SIDE_RIGHT.equals(side) && !StringUtils.isEmpty(value))
 		{
 			setRight(value);
 		}
 
 	}
 	
-	public String getDiff() {
-		return diff;
-	}
-	
-	public void setDiff(String diff) {
-		this.diff = diff;
-	}
-	
 	public Integer getLengthLeft() {
-		return lengthLeft;
+		return left == null?0:left.length();
 	}
 	
 	public Integer getLengthRight() {
-		return lengthRight;
+		return right == null?0:right.length();
+	}
+
+	public boolean isEmpty()
+	{
+		return StringUtils.isEmpty(left) && StringUtils.isEmpty(right);
 	}
 	
-	public void setLengthLeft(Integer lengthLeft) {
-		this.lengthLeft = lengthLeft;
+	public boolean isEqual()
+	{
+		return left !=null&& right!=null && left.equals(right);
 	}
 	
-	public void setLengthRight(Integer lengthRight) {
-		this.lengthRight = lengthRight;
+	public boolean isSameSize()
+	{
+		return left !=null&& right!=null && left.length() == right.length();
+	}
+	
+	public boolean isComplete()
+	{
+		return left != null && right != null;
 	}
 }

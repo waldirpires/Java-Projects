@@ -1,8 +1,9 @@
 package com.webapp.demo.service;
 
 import com.webapp.demo.model.DiffDocument;
+import com.webapp.demo.model.DiffProcessorReport;
 
 public interface DiffProcessorService {
 
-	public void executeDiffTool(DiffDocument doc);
+	public DiffProcessorReport executeDiffTool(DiffDocument doc);
 }
