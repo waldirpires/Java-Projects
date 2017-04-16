@@ -5,8 +5,9 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 
-import org.apache.commons.lang.StringUtils;
+import com.webapp.demo.utils.StringUtils;
 
 @Entity(name = "diff_document")
 public class DiffDocument  implements Serializable {
@@ -23,9 +24,15 @@ public class DiffDocument  implements Serializable {
 	@Id
 	//@GeneratedValue(strategy = GenerationType.AUTO)
 	Long id;
-	@Column(nullable = true)
+
+	@Column(name="LEFT", nullable = true, 
+	columnDefinition="CLOB") 
+	@Lob 
 	String left;
-	@Column(nullable = true)
+
+	@Column(name="RIGHT", nullable = true, 
+	columnDefinition="CLOB") 
+	@Lob 
 	String right;
 	
 	public Long getId() {
@@ -36,6 +43,10 @@ public class DiffDocument  implements Serializable {
 		this.id = id;
 	}
 	
+	@Column(name="LEFT", 
+			columnDefinition="CLOB NULL", 
+			table="diff_document") 
+			@Lob 
 	public String getLeft() {
 		return left;
 	}
