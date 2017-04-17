@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: difftool
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: wrpires
+Implementation-Vendor-Id: com.example.apps
+Build-Jdk: 1.8.0_102
+Implementation-URL: http://projects.spring.io/spring-boot/difftool/
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+
