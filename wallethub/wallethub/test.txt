@@ -1,1 +1,2 @@
-the book is on the table | the sky is blue | the book is on the table
+the book is on the table | the sky is blue | the book is on the table| the sky is blue|The book is on the table | the garden is green | today is monday 
+ the book os under the table | the sky is blue | the book is on the table
