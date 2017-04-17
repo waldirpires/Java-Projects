@@ -187,14 +187,9 @@ public class TopPhrases {
 		FileReader reader = new FileReader(fileName);
 		BufferedReader br = new BufferedReader(reader);
 		
-		String line = "";
+		String line = br.readLine();
 		while(line != null && phrase != null)
 		{
-			line = br.readLine();
-			if (line == null)
-			{
-				continue;
-			}
 			String[] split = line.split(SPLIT_REGEX);
 			// O(n x m) where m = number of sentences per line (average)
 			for (int collumn = 0; collumn < split.length; collumn++)
@@ -213,6 +208,7 @@ public class TopPhrases {
 					}
 				}
 			}
+			line = br.readLine();
 		}
 		br.close();
 		reader.close();
