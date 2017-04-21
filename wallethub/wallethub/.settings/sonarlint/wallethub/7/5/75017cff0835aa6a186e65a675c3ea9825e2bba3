@@ -1,0 +1,10 @@
+
+¶%squid:RedundantThrowsDeclarationCheckµ"xRemove the declaration of thrown exception 'java.io.FileNotFoundException' which is a subclass of 'java.io.IOException'.(ùàæ ùÿÿÿÿ8˜î°ê·+
+gsquid:S12065"PThis class overrides "equals()" and should therefore also override "hashCode()".(ÜÑã
+Nsquid:S1135."2Complete the task associated to this TODO comment.(» æÿÿÿÿÿ
+Gsquid:S1172$"0Remove this unused method parameter "frequency".(Ã€¦Ê
+lsquid:S001226"TAt most one statement is allowed per line, but 2 statements were found on this line.(õŒÂÛ
+q
+squid:S134Ì"NRefactor this code to not nest more than 3 if/for/while/switch/try statements.(Ø¼€Ëşÿÿÿÿ8€ªê·+
+rsquid:S00116"NRename this field "LOG" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(“ÕÛşúÿÿÿÿ8èæ¥ë·+
+squid:S1488§"bImmediately return this expression instead of assigning it to the temporary variable "topPhrases".(ÄŞ‘Ï8˜î°ê·+

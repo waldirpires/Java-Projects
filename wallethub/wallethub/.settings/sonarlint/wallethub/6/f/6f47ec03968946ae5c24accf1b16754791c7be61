@@ -1,0 +1,16 @@
+
+dsquid:S21845"FCast one of the operands of this multiplication operation to a "long".(üéÖ×8²îï—¸+
+dsquid:S21845"FCast one of the operands of this multiplication operation to a "long".(üéÖ×8²îï—¸+
+Vsquid:S1197@"8Move the array designator from the variable to the type.(—ú°€8²îï—¸+
+±squid:S22933"Replace the type specification in this constructor call with the diamond operator ("<>"). (sonar.java.source not set. Assuming 7 or greater.)(ÔÛ¥òûÿÿÿÿ8²îï—¸+
+X
+squid:S106";Replace this usage of System.out or System.err by a logger.(ÈŸóÈ8²îï—¸+
+]
+squid:S106";Replace this usage of System.out or System.err by a logger.(ıšÿ«úÿÿÿÿ8²îï—¸+
+]
+squid:S106=";Replace this usage of System.out or System.err by a logger.(äüÑüÿÿÿÿ8²îï—¸+
+hsquid:S2674"JCheck the return value of the "skip" call to see how many bytes were read.(†ÏÓÌ8²îï—¸+
+zsquid:S1604#"\Make this anonymous inner class a lambda (sonar.java.source not set. Assuming 8 or greater.)(¥Ñ¶¶8²îï—¸+
+jsquid:S00112"FDefine and throw a dedicated exception instead of using a generic one.(°÷ÇÎÿÿÿÿÿ8²îï—¸+
+jsquid:S001120"FDefine and throw a dedicated exception instead of using a generic one.(°÷ÇÎÿÿÿÿÿ8²îï—¸+
+]squid:S1161$":Add the "@Override" annotation above this method signature(ÆŠºùÿÿÿÿ8²îï—¸+

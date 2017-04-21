@@ -122,6 +122,8 @@ public class TopPhrases {
 					phrases.get(hashCode).frequency++;
 				}
 			}
+			lineNumber++;
+			LOG.info("Read line number: " + lineNumber);
 			line = br.readLine();
 		}
 		br.close();
