@@ -2,6 +2,10 @@ package com.webapp.demo.model;
 
 import java.util.List;
 
+/**
+ * Stores a Diff process report
+ *
+ */
 public class DiffProcessorReport {
 
 	private Long id;

@@ -6,6 +6,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.webapp.demo.service.DiffDocumentException;
+
 public class DiffDocumentTest {
 
 	private DiffDocument doc;
@@ -93,6 +95,15 @@ public class DiffDocumentTest {
 		doc.updateSide("blah", value);
 		Assert.assertEquals(value, doc.getRight());
 		Assert.assertEquals(0, doc.getLengthRight().intValue());
+	}
+
+	@Test
+	public void testUpdateSideInvalid2()
+	{
+		String value = null;
+		doc.updateSide(null, value);
+		Assert.assertThat(doc.getLeft(), CoreMatchers.nullValue());
+		Assert.assertThat(doc.getRight(), CoreMatchers.nullValue());
 	}
 
 	@Test

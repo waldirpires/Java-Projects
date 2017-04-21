@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 
+import com.webapp.demo.service.DiffDocumentException;
 import com.webapp.demo.utils.StringUtils;
 
 @Entity(name = "diff_document")
@@ -77,7 +78,6 @@ public class DiffDocument  implements Serializable {
 		{
 			setRight(value);
 		}
-
 	}
 	
 	public Integer getLengthLeft() {
