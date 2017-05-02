@@ -3,12 +3,15 @@ package wallethub;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.Map;
 import java.util.Set;
 
 import org.apache.commons.io.FileUtils;
 import org.hamcrest.CoreMatchers;
 import org.junit.Assert;
 import org.junit.Test;
+
+import wallethub.TopPhrases.Phrase;
 
 public class TopPhrasesTest {
 
@@ -56,7 +59,7 @@ public class TopPhrasesTest {
 		TopPhrases tp = new TopPhrases();
 		Set<String> findTopPhrases = tp.findTopPhrases("sample2.txt", 5);
 		
-		Assert.assertThat(findTopPhrases.size(), CoreMatchers.equalTo(3));
+		Assert.assertThat(findTopPhrases.size(), CoreMatchers.equalTo(5));
 //		Assert.assertThat(findTopPhrases.toString().contains("the book is on the table"), CoreMatchers.equalTo(true));
 //		Assert.assertThat(findTopPhrases.toString().contains("the sky is blue"), CoreMatchers.equalTo(true));
 	}
@@ -80,9 +83,9 @@ public class TopPhrasesTest {
 	public void testFindTopPhrases5() throws IOException
 	{
 		TopPhrases tp = new TopPhrases();
-		Set<String> findTopPhrases = tp.findTopPhrases("hugeFile.txt", 5);
+		Set<String> findTopPhrases = tp.findTopPhrases("sample13.txt", 5);
 		
-		Assert.assertThat(findTopPhrases.size(), CoreMatchers.equalTo(3));
+		Assert.assertThat(findTopPhrases.size(), CoreMatchers.equalTo(5));
 //		Assert.assertThat(findTopPhrases.toString().contains("the book is on the table"), CoreMatchers.equalTo(true));
 //		Assert.assertThat(findTopPhrases.toString().contains("the sky is blue"), CoreMatchers.equalTo(true));
 	}

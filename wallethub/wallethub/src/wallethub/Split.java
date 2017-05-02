@@ -27,7 +27,7 @@ public class Split {
         int charCount = 0;
         long totalChar = size/2;
         StringBuffer progressBar = new StringBuffer(id + ": ");
-        while((ch=reader.read()) != -1 && charCount < (end-start)) {
+        while((ch=reader.read()) != -1 && charCount <= (end-start)) {
         	charCount++;
             if(charToSearch == (char)ch) {
                 counter++;
@@ -41,6 +41,7 @@ public class Split {
         reader.close();
 
         System.out.println(String.format("[%d->%d] %s: a occurs %d times", start, end, id, counter));
+        System.out.println(id + ": char count: " + charCount);
         return counter;
         
     }
@@ -117,7 +118,7 @@ public class Split {
     	System.out.println("File size: " + size + " bytes");
     	BufferedReader reader = new BufferedReader(new FileReader(fileName));
         int ch;
-        char charToSearch='|';
+        char charToSearch='\n';
         int counter=0;
         int charCount = 0;
         while((ch=reader.read()) != -1) {
@@ -140,10 +141,10 @@ public class Split {
         throws Exception
     {
     	long time = System.currentTimeMillis();
-        String fileName = "hugeFile2.txt";
-//		int numSentences = getNumberOfSentences(fileName);
-        Split s = new Split(new File(fileName));
-        long numSentences = s.processAllTask1(10, 1000000); //10MB per chunk
+        String fileName = "sample11.txt";
+		int numSentences = getNumberOfSentences(fileName);
+//        Split s = new Split(new File(fileName));
+//        long numSentences = s.processAllTask1(8, 1000000); //10MB per chunk
 		time = System.currentTimeMillis() - time;
 		System.out.println("DONE: " + time + " ms");
 		System.out.println("Sentences: " + numSentences);
